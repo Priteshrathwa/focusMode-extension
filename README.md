@@ -32,6 +32,10 @@ A minimal and powerful Chrome extension to help you stay focused by blocking dis
 5. The circular timer and site blocker will be activated
 6. You can stop the session anytime
 
+note>>- in strict mode you cannot stop focus mode directly,it will automatically be disabled after timer goes to 00:00
+if you want to turn off focus mode with strict mode on, you will have to close the browser or disable the extension.
+
+
 ## 📜 License
 
 MIT License — feel free to use and modify this extension.
