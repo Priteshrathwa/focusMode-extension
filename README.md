@@ -32,21 +32,6 @@ A minimal and powerful Chrome extension to help you stay focused by blocking dis
 5. The circular timer and site blocker will be activated
 6. You can stop the session anytime
 
-## 📂 Project Structure
-
-focus-mode/
-├── icons/
-│ └── icon.png
-├── popup.html
-├── popup.js
-├── background.js
-├── content.js
-├── blocked.html
-├── style.css
-├── manifest.json
-└── README.md
-
-
 ## 📜 License
 
 MIT License — feel free to use and modify this extension.
