@@ -4,14 +4,15 @@ A minimal and powerful Chrome extension to help you stay focused by blocking dis
 
 ## 🚀 Features
 
-- ⛔ Block access to distracting websites (e.g. YouTube, Instagram)
-- ⏳ Set a custom timer for focus sessions (e.g. 25 minutes)
-- 🌀 Circular progress timer animation while focus mode is active
-- ✅ Automatically restores access after the timer ends
-- ⚙️ Works entirely offline, with no user tracking
+- Block access to distracting websites (e.g. YouTube, Instagram).
+- Set a custom timer for focus sessions (e.g. 25 minutes).
+- strict mode for better controlled focus.
+- Automatically restores access after the timer ends.
+- Works entirely offline, with no user tracking.
 
 ## 📸 Preview
-<img width="1920" height="1080" alt="Screenshot (37)" src="https://github.com/user-attachments/assets/96bd38f4-0ab4-408b-a2da-d9f8579bc166" />
+<img width="1920" height="1080" alt="Screenshot (38)" src="https://github.com/user-attachments/assets/e10e102b-8cb7-4ff0-a5b1-9c1485803756" />
+<img width="1920" height="1080" alt="Screenshot (39)" src="https://github.com/user-attachments/assets/6bc2e04d-46d5-47df-a564-770e1f89b593" />
 
 ## 🔧 Installation
 
@@ -50,6 +51,4 @@ focus-mode/
 
 MIT License — feel free to use and modify this extension.
 
----
-
-> Focus on what matters. Block the noise. Breathe in. Code out.
+> Focus on what matters.
