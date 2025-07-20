@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Focus Mode</title>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      padding: 24px;
+      width: 340px;
+      background: linear-gradient(135deg, #5a9eed 0%, #fcf7fb 100%);
+      color: #333;
+      border-radius: 18px;
+      box-shadow: 0 6px 24px rgba(44, 62, 80, 0.10), 0 1.5px 4px rgba(44, 62, 80, 0.08);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #3a5ca8;
+      letter-spacing: 1px;
+      font-weight: 600;
+      text-shadow: 0 2px 8px rgba(58, 92, 168, 0.08);
+    }
+    .input-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    input[type="text"], input[type="number"] {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      background: #f1f6fb;
+      box-shadow: 0 1px 4px rgba(44, 62, 80, 0.07);
+      outline: none;
+      transition: box-shadow 0.2s;
+    }
+    input[type="text"]:focus, input[type="number"]:focus {
+      box-shadow: 0 2px 8px rgba(44, 62, 80, 0.12);
+    }
+    button {
+      padding: 10px 18px;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(90deg, #6db3f2 0%, #1e69de 100%);
+      color: white;
+      cursor: pointer;
+      font-size: 1em;
+      font-weight: 500;
+      box-shadow: 0 2px 8px rgba(44, 62, 80, 0.10);
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+    button:hover {
+      background: linear-gradient(90deg, #4a90e2 0%, #174ea6 100%);
+      box-shadow: 0 4px 16px rgba(44, 62, 80, 0.14);
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin-bottom: 18px;
+      max-height: 120px;
+      overflow-y: auto;
+      background: #f1f6fb;
+      border-radius: 10px;
+      box-shadow: 0 1px 6px rgba(44, 62, 80, 0.07);
+    }
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #eaf2fb;
+      margin: 4px 0;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 1em;
+      box-shadow: 0 1px 4px rgba(44, 62, 80, 0.04);
+      transition: background 0.2s;
+    }
+    li:hover {
+      background: #dde7f7;
+    }
+    .remove-btn {
+      background: #f44336;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1.1em;
+      padding: 2px 10px;
+      margin-left: 10px;
+      box-shadow: 0 1px 4px rgba(244, 67, 54, 0.10);
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+    .remove-btn:hover {
+      background: #b71c1c;
+      box-shadow: 0 2px 8px rgba(244, 67, 54, 0.18);
+    }
+    #timerDisplay {
+      margin: 16px 0;
+      font-weight: bold;
+      color: #3a5ca8;
+      text-align: center;
+      font-size: 1.15em;
+      letter-spacing: 1px;
+      background: #eaf2fb;
+      border-radius: 8px;
+      padding: 8px 0;
+      box-shadow: 0 1px 4px rgba(44, 62, 80, 0.07);
+    }
+    .controls {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+    label {
+      font-size: 1em;
+      margin-bottom: 4px;
+      display: block;
+      color: #3a5ca8;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+    #timerCircleContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 16px 0;
+    }
+    #timerCircle {
+      width: 100px;
+      height: 100px;
+    }
+    #timerCircle circle {
+      fill: none;
+    }
+    #timerProgress {
+      stroke-linecap: round;
+      stroke-dasharray: 282.743;
+      stroke-dashoffset: 282.743;
+      transition: stroke-dashoffset 1s linear;
+    }
+    #timerText {
+      text-anchor: middle;
+      fill: #3a5ca8;
+      font-size: 1.3em;
+      font-family: 'Segoe UI';
+    }
+  </style>
+</head>
+<body>
+  <h2>Focus Mode</h2>
+  <div class="input-row">
+    <input id="site" type="text" placeholder="Enter site (e.g. youtube.com)">
+    <button id="add">Add</button>
+  </div>
+  <label>Blocked Sites:</label>
+  <ul id="list"></ul>
+  <label for="timerHours">Hours:</label>
+  <input id="timerHours" type="number" min="0" value="0" style="width:60px;" />
+  <label for="timerMinutes">Minutes:</label>
+  <input id="timerMinutes" type="number" min="1" value="25" style="width:60px;" />
+  <div id="timerDisplay">Time left</div>
+<div id="timerCircleContainer">
+  <svg id="timerCircle" width="100" height="100">
+    <!-- Background circle -->
+    <circle
+      cx="50"
+      cy="50"
+      r="45"
+      stroke="#eaf2fb"
+      stroke-width="10"
+      fill="none"
+    />
+
+    <!-- Progress circle -->
+    <circle
+      id="timerProgress"
+      cx="50"
+      cy="50"
+      r="45"
+      stroke="#3a5ca8"
+      stroke-width="10"
+      fill="none"
+      stroke-linecap="round"
+      stroke-dasharray="282.743"
+      stroke-dashoffset="282.743"
+    />
+
+    <!-- Timer text -->
+    <text
+      id="timerText"
+      x="50%"
+      y="54%"
+      text-anchor="middle"
+      fill="#3a5ca8"
+      font-size="1.3em"
+      font-family="Segoe UI"
+      dy=".3em"
+    >--:--</text>
+  </svg>
+</div>
+
+ 
+  <div class="controls">
+    <button id="start">Start Focus Mode</button>
+    <button id="stop">Stop Focus Mode</button>
+    <button id="blockSocial">Block All Social Media</button>
+  </div>
+  <label style="display:flex;align-items:center;margin-bottom:10px;">
+    <input type="checkbox" id="strictMode" style="margin-right:8px;">
+    Strict Mode (cannot stop early)
+  </label>
+  <script src="popup.js"></script>
+</body>
+</html>
+
+
