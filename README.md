@@ -4,7 +4,7 @@ A minimal and powerful Chrome extension to help you stay focused by blocking dis
 
 ## 🚀 Features
 
-- Block access to distracting websites (e.g. YouTube, Instagram).
+- Block access to distracting websites (e.g. Facebook, Instagram).
 - Set a custom timer for focus sessions (e.g. 25 minutes).
 - strict mode for better controlled focus.
 - Automatically restores access after the timer ends.
