@@ -15,8 +15,8 @@ A minimal and powerful Chrome extension to help you stay focused by blocking dis
 <img width="1920" height="1080" alt="Screenshot (39)" src="https://github.com/user-attachments/assets/6bc2e04d-46d5-47df-a564-770e1f89b593" />
 
 ## 🔧 Installation
-
-1. Clone this repository or [Download as ZIP](https://github.com/your-username/focus-mode/archive/refs/heads/main.zip)
+note - updated zip file is uploaded directly no need to clone repo you can directly download zip file and extract it
+1. Clone this repository
 2. Open Chrome and go to `chrome://extensions/`
 3. Enable **Developer Mode** (top right)
 4. Click **"Load unpacked"**
